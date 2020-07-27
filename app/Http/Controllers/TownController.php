@@ -80,4 +80,9 @@ class TownController extends Controller
             'updated_at' => now(),
         ]);
     }
+
+    public function view()
+    {
+        return view('town');
+    }
 }

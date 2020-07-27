@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('county', 'CountyController@index');
 Route::get('town', 'TownController@index');
 Route::get('town/id/{id}/getdata', array('before' => 'county', 'uses' => 'TownController@getTownById'));
@@ -22,3 +23,8 @@ Route::get('updatetown/id/{id}/name/{name}', array('before' => 'id','before' => 
 Route::get('inserttown/countyid/{countyId}/name/{name}', array('before' => 'countyId','before' => 'name', 'uses' => 'TownController@add'));
 Route::get('deletetown/id/{id}', array('before' => 'id', 'uses' => 'TownController@deleteById'));
 Route::post('addtownbyjson', ['uses' => 'TownController@addTownByJson']);
+Route::get('countyView', 'CountyController@view');
+Route::get('townEdit', 'TownController@view');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

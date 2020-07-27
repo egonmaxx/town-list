@@ -20,4 +20,10 @@ class CountyController extends Controller
             $counties
         ]);
     }
+
+    public function view()
+    {
+        $counties = DB::table('counties')->get();
+        return view('county', ['counties' => $counties]);
+    }
 }
